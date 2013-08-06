@@ -1,0 +1,1 @@
+var db = require('mongojs').connect('daterishi', ["userData"]);

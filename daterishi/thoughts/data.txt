@@ -1,0 +1,23 @@
+There are some key pieces of information I need from both RISHI and from the user (all from facebook):
+
+UPDATE: (8/6/2013) Rishi doesn't seem to do a lot on facebook - consider finishing this algorithm and expanding it to rando people
+
+1. Full Name
+2. Work
+3. Education (current and past)
+4. Current City
+5. Hometown (Rishi's is Thane, we will change that to farmington)
+6. Birthday (soulmates <3)
+7. Gender (rishi <3's dem ladies)
+8. Relationship Status (single plox)
+9. Religion (++points if you're jain)
+10. Apparently rishi has no political views oh well 
+
+^This is all the "about me" section for Rishi
+
+First iteration of application:
+
+Check all those pieces of information from the user (up to 33%)
+Check how many mutual friends the client has with rishi (up to 33%)
+Check if they're in any photos with rishi? (33%)
+

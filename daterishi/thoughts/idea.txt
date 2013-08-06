@@ -1,0 +1,1 @@
+A simple, lightweight algorithm that checks specific facebook data against a sample (rishi) to determine whether or not you are a potential bride for the man.
