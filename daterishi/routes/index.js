@@ -11,11 +11,11 @@
  var graph = require('fbgraph');
 
  passport.serializeUser(function(user, done){
- 	done(null, user._json.id);
+ 	done(null, user.id);
  })
 
  passport.deserializeUser(function(user, done){
- 	done(err, user);
+ 	done(null, user);
  })
 
  passport.use(new FacebookStrategy({
@@ -25,8 +25,10 @@
  },
  	function(accessToken, refreshToken, profile, done){
  		graph.setAccessToken(accessToken);
- 		console.log(profile);
- 		done(null, profile);
+ 		var user = {
+ 			id: profile._json.id
+ 		}
+ 	 	done(null, user);
 	}
  ));
 
@@ -34,11 +36,15 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.fbauth = passport.authenticate('facebook', {session: false, scope: ['email', 'read_stream', 'publish_actions']});
+exports.fbauth = passport.authenticate('facebook', {scope: ['email', 'read_stream', 'publish_actions']});
+
 exports.fbcallback = passport.authenticate('facebook', { successRedirect: '/loggedin',
 														 failureRedirect: '/'});
 
 exports.loggedin = function(req, res){
-	console.log(req.user);
 	res.render('index', {title: "Logged in "});
+}
+
+exports.algorithm = function(req, res){
+	graph.get('')
 }
