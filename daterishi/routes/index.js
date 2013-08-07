@@ -36,7 +36,7 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.fbauth = passport.authenticate('facebook', {scope: ['email', 'read_stream', 'publish_actions']});
+exports.fbauth = passport.authenticate('facebook', {scope: ['email', 'read_stream', 'user_groups', 'user_relationships', 'user_hometown', 'user_location', 'user_religion_politics', 'user_about_me', 'user_birthday', 'user_interests', 'user_relationship_details', 'publish_actions']});
 
 exports.fbcallback = passport.authenticate('facebook', { successRedirect: '/loggedin',
 														 failureRedirect: '/'});
