@@ -3,12 +3,17 @@
  * GET home page.
  */
 
+//8328jm whenisgoodcode
+//xe9rxg whenisgoodcode 2
+
  /*These are the modules required for this application*/
  var config = require('../scripts/info');
  var passport = require('passport');
- //var rishiData = require('../scripts/rishi');
+ //var rishi = require('../scripts/rishi');
+ var algo = require('../scripts/algo');
  var FacebookStrategy = require('passport-facebook').Strategy;
  var graph = require('fbgraph');
+ var fs = require('fs');
 
  passport.serializeUser(function(user, done){
  	done(null, user.id);
@@ -36,15 +41,28 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.fbauth = passport.authenticate('facebook', {scope: ['email', 'read_stream', 'user_groups', 'user_relationships', 'user_hometown', 'user_location', 'user_religion_politics', 'user_about_me', 'user_birthday', 'user_interests', 'user_relationship_details', 'publish_actions']});
+exports.fbauth = passport.authenticate('facebook', {scope: config.permissions});
 
-exports.fbcallback = passport.authenticate('facebook', { successRedirect: '/loggedin',
-														 failureRedirect: '/'});
+exports.fbcallback = passport.authenticate('facebook', { successRedirect: '/algorithm',
+														 failureRedirect: '/failure'});
 
 exports.loggedin = function(req, res){
 	res.render('index', {title: "Logged in "});
 }
 
 exports.algorithm = function(req, res){
-	graph.get('')
+	graph.get('/'+req.user+config.query, function(e, resp){
+		graph.get('/rishizaveri1994'+config.query, function(e, rish){
+			if(e){
+				res.send("You are not friends with rishi.");
+			} else {
+				graph.get('/'+req.user+'/mutualfriends?user=rishizaveri1994&fields=id', function(e, friends){
+					resp.mutualfriends = friends.data.length;
+					var response = algo.algo(resp, rish);
+					console.log(response);
+					res.send(resp);
+				})
+			}
+		})
+	});
 }

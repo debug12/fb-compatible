@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -37,6 +36,7 @@ app.get('/', routes.index);
 app.get('/auth/facebook', routes.fbauth);
 app.get('/auth/facebook/callback', routes.fbcallback);
 app.get('/loggedin', routes.loggedin);
+app.get('/algorithm', routes.algorithm);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
