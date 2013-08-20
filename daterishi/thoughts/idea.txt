@@ -1,1 +1,13 @@
 A simple, lightweight algorithm that checks specific facebook data against a sample (rishi) to determine whether or not you are a potential bride for the man.
+
+Likes - Up to 20% similarity
+Recent Events - Up to 20% similarity
+Hometown - 5% all or nothing
+Education - Up to 15% similarity
+Age Range - 5% all or nothing
+Mutual Friends - Up to 20%
+Location - Up to 5%
+TBD - Last 10%
+
+Total : 90
+
