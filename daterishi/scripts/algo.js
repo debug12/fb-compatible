@@ -1,5 +1,23 @@
 var algorithm = function(userData, rishiData){
 	var resultObj = {};
+	var likes = 0;
+	var events = 0;
+	for(var i = 0; i < userData.likes.data.length; ++i){
+		for(var j = 0; j < rishiData.likes.data.length; ++j){
+			if(userData.likes.data[i].id == rishiData.likes.data[j].id){
+				++likes;
+			}
+		}
+	}
+	console.log(likes);
+	for(var i = 0; i < userData.events.data.length; ++i){
+		for(var j = 0; j < rishiData.events.data.length; ++j){
+			if(userData.events.data[i].id == rishiData.events.data[j].id){
+				++events;
+			}
+		}
+	}
+	console.log(events);
 	resultObj.percent = 0;
 	if(userData.gender == "male"){
 		resultObj.genderException = "You are a male. If rishi ever changes his mind, we'll be in touch.";

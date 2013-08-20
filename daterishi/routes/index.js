@@ -60,7 +60,7 @@ exports.algorithm = function(req, res){
 					resp.mutualfriends = friends.data.length;
 					var response = algo.algo(resp, rish);
 					console.log(response);
-					res.send(resp);
+					res.send({user: resp, rishi: rish});
 				})
 			}
 		})
