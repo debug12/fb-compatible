@@ -1,10 +1,6 @@
-
 /*
  * GET home page.
  */
-
-//8328jm whenisgoodcode
-//xe9rxg whenisgoodcode 2
 
  /*These are the modules required for this application*/
  var config = require('../scripts/info');
